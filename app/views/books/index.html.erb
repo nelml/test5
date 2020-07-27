@@ -1,2 +1,11 @@
 <h1>Books#index</h1>
+My profile
+<%= current_user.name %>
+<%= current_user.introduction %>
+
 <p>Find me in app/views/books/index.html.erb</p>
+<h2>books</h2>
+<% @books.each do |book| %>
+	<li>本のタイトル→<%= book.title %></li>
+	<li>感想→<%= book.body %></li>
+<% end %>

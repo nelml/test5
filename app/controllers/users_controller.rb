@@ -12,7 +12,11 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@user.update(user_params)
 		redirect_to user_path, notice: "You have updated user successfully."
+	end
 
+	def index
+		# @user = User.find(params[:id])
+		@users = User.all
 	end
 
 	private
