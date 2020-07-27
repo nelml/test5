@@ -1,6 +1,14 @@
+<% flash.each do |message_type, message| %>
+	<%= message %>
+<% end %>
 <h1>Congraturations!!!!</h1>
 
 <%= current_user.name %><br>
-<%= current_user.email %>
+<%= current_user.introduction %><br>
+<%= link_to 'edit profile', edit_user_path %><br>
 
-<%= link_to 'logout', destroy_user_session_path, method: :delete %>
+<%= link_to 'logout', destroy_user_session_path, method: :delete %><br>
+
+===============================<br>
+header,test<br>
+<%= link_to 'Users', users_path

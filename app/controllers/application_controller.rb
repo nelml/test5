@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
 		user_path(resource)
 	end
 
+	def update_resource(resource, params)
+		resource.update_without_password(params)
+	end
+
 	protected
 
 
@@ -19,5 +23,9 @@ class ApplicationController < ActionController::Base
 		#added_bttrs = [:name, :password, :remember_me]
 		devise_parameter_sanitizer.permit(:sign_up, keys: added_attrs)
 		devise_parameter_sanitizer.permit(:sign_in, keys: [:name, :password, :remember_me])
+	end
+
+	def configure_account_update_params
+		devise_parameter_sanitizer.permit(:account_update, keys:[:name, :introduction])
 	end
 end
