@@ -6,6 +6,17 @@ My profile
 <p>Find me in app/views/books/index.html.erb</p>
 <h2>books</h2>
 <% @books.each do |book| %>
+	<li></li>
 	<li>本のタイトル→<%= book.title %></li>
 	<li>感想→<%= book.body %></li>
+<% end %>
+
+<%= form_for(@book) do |f| %>
+<h3>New book</h3>
+<%= f.text_field :title %>
+<h3>本文</h3>
+<%= f.text_area :body %><br>
+<%= f.submit "Create Book" %>
+
+
 <% end %>

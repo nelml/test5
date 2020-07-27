@@ -2,12 +2,21 @@
 	<%= message %>
 <% end %>
 <h1>Congraturations!!!!</h1>
-
+<%= attachment_image_tag @user, :image, :fill, 50, 50, format: "jpg" %>
 <%= current_user.name %><br>
 <%= current_user.introduction %><br>
 <%= link_to 'edit profile', edit_user_path %><br>
 
 <%= link_to 'logout', destroy_user_session_path, method: :delete %><br>
+<h2>This_User_books</h2>
+<% @books.each do |book| %>
+	<ul>
+		<li><%=attachment_image_tag @user, :image, :fill, 100, 100, format: "jpg" %></li>
+		<li><%= current_user.name %></li>
+		<li>タイトル→<%= link_to book.title, book_path(book.id) %></li>
+		<li>内容→<%= book.body %></li>
+	</ul>
+<% end %>
 
 ===============================<br>
 header,test<br>

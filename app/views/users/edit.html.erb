@@ -11,6 +11,11 @@
     <%= f.text_area :introduction %>
   </div>
 
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.attachment_field :image %>
+  </div>
+
   <div class="actions">
   	<%= f.submit "Update User" %>
   </div>
