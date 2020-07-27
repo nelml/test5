@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.titb {
+	font-size: 20px;
+	padding-top: 10px;
+	color: #fff;
+}
+
+a:visited {
+	color: #666;
+}
+
+p, ul {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 13px;
+	line-height: 18px;
+}
+
+main {
+	margin-top: 51px;
+}
+
+.action, .field {
+	margin-bottom: 10px;
+}
