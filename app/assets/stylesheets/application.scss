@@ -38,6 +38,10 @@ p, ul {
 	line-height: 18px;
 }
 
+p {
+	margin-bottom: 10px;
+}
+
 main {
 	margin-top: 51px;
 }
@@ -45,3 +49,16 @@ main {
 .action, .field {
 	margin-bottom: 10px;
 }
+
+#error_explanation {
+	color: red;
+}
+
+.table {
+	margin-bottom: 20px;
+}
+
+// .row {
+// 	margin-left: -15px;
+// 	margin-right: -15px;
+// }
