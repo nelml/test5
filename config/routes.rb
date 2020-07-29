@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :books
 
   get 'home/about' => 'books#about'
+  post 'books/:id' => 'books#create'
+  delete 'books/books/:id' => 'books#delete', as: "delbook"
 end

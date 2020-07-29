@@ -1,26 +1,30 @@
 <%= render "books/afheader" %>
-<h1>User info</h1>
-<%= form_for(@user) do |f| %>
+<main>
+  <div class="container">
+    <p id="notice"></p>
+    <h2>User info</h2>
+    <%= form_for(@user) do |f| %>
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
+      <div class="field">
+        <%= f.label :image %><br />
+        <%= f.attachment_field :image %>
+      </div>
 
-  <div class="field">
-    <%= f.label :introduction %><br />
-    <%= f.text_area :introduction %>
-  </div>
+      <div class="field">
+        <%= f.label :introduction %><br />
+        <%= f.text_area :introduction %>
+      </div>
 
-  <div class="field">
-    <%= f.label :image %><br />
-    <%= f.attachment_field :image %>
-  </div>
+      <div class="actions">
+      	<%= f.submit "Update User" %>
+      </div>
+    <% end %>
 
-  <div class="actions">
-  	<%= f.submit "Update User" %>
-  </div>
-<% end %>
-
-<%= link_to 'logout', destroy_user_session_path, method: :delete %>
-<a href="/">Top</a>
+    <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+    <a href="/">Top</a>
+</main>
+<%= render "books/footer" %>

@@ -14,22 +14,32 @@ class BooksController < ApplicationController
   end
 
   def show
+    #@book = Book.find(params[:id])
+    @booky = Book.find(params[:id])
+    @user = @booky.user
     @book = Book.new
-    @user = @book.user
-    @books = @user.books
+    #@ss = ""
+
   end
 
   def create
-    @book = Book.new(book_params)
-    @book.user_id = current_user.id
-    @book.save
-    redirect_to book_path(@book.id)
+    book = Book.new(book_params)
+    book.user_id = current_user.id
+    # if book.save
+     redirect_to book_path(book.id), notice: 'aaa'
+    # else
+      # path = Rails.application.routes.recognize_path(request.referer)
+      # render path[:action]
+    # end
   end
 
   def update
   end
 
-  def about
+  def delete
+      book = Book.find(params[:id])
+      book.destroy
+      redirect_to books_path
   end
 
   private
