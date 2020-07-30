@@ -1,3 +1,28 @@
-<%= render "books/header" %>
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
+<%= render "afheader" %>
+<main>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<h1>Editing Book</h1>
+				<%= render 'error' %>
+				<%= form_for(@book) do |f| %>
+					<div class="field row">
+						<div><%= f.label :title %></div>
+						<div><%= f.text_field :title, class: "col-xs-12" %></div>
+					</div>
+					<div class="field row">
+						<div><%= f.label "Opinion" %></div>
+						<div><%= f.text_area :body, class: "col-xs-12" %></div>
+					</div>
+					<div class="action row">
+						<%= f.submit "Update Book", class: "col-xs-12 btn btn-primary" %>
+					</div>
+				<% end %>
+				<%= link_to "Show", book_path(@book.id) %> | <%= link_to "Back", books_path %>
+			</div>
+			<div class="col-md-3">
+			</div>
+		</div>
+	</div>
+</main>
+<%= render "footer" %>

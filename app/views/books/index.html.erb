@@ -1,7 +1,9 @@
 <%= render 'afheader' %>
 <main>
 	<div class="container">
-		<p id="notice"></p>
+		<%= render 'flash' %>
+
+		<%= render 'error' %>
 		<div class="row">
 			<div class="col-xs-3">
 				<h2>User info</h2>

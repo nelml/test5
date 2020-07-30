@@ -1,7 +1,10 @@
 <%= render 'books/afheader' %>
 <main>
 	<div class="container">
-		<p id="notice"></p>
+		<%= render 'flash' %>
+
+		<%= render 'error' %>
+
 		<div class="row">
 			<div class="col-xs-3">
 				<h2>User info</h2>
@@ -20,7 +23,7 @@
 					</tbody>
 				</table>
 				<div class="row">
-					<%= link_to edit_user_path do %>
+					<%= link_to edit_user_path(current_user.id) do %>
 						<button class="col-xs-12 btn btn-default glyphicon glyphicon-wrench" href="users/:id/edit"></button>
 					<% end %>
 				</div>
