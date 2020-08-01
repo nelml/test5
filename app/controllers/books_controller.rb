@@ -1,5 +1,8 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only:[:index, :edit, :show]
+  def about
+  end
+
   def index
   	@book = Book.new
   	@books = Book.all
@@ -13,6 +16,13 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
+    @user = @book.user
+    if @user == current_user
+
+    else
+      redirect_to book_path
+    end
+
   end
 
   def show

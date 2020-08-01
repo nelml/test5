@@ -1,7 +1,7 @@
 <%= render "books/afheader" %>
 <main>
   <div class="container">
-    <p id="notice"></p>
+    <%= render 'error' %>
     <h2>User info</h2>
     <%= form_for(@user) do |f| %>
       <div class="field">
@@ -10,8 +10,8 @@
       </div>
 
       <div class="field">
-        <%= f.label :image %><br />
-        <%= f.attachment_field :image %>
+        <%= f.label :profile_image, "image" %><br />
+        <%= f.attachment_field :profile_image %>
       </div>
 
       <div class="field">

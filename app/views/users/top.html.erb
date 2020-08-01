@@ -1,8 +1,12 @@
+<% if user_signed_in? %>
+	<%= render 'books/afheader' %>
+<% else %>
 <%= render "books/header" %>
+<% end %>
 
 <main>
 	<div class="container">
-		<p id="notice"></p>
+		<%= render 'books/flash' %>
 		<div class="row">
 			<div class="top-message col-md-offset-3 col-md-6">
 			<h1>welcome to <span class="glyphicon glyphicon-book" aria-hidden="true"><strong>Bookers</strong></span>　!!</h1>

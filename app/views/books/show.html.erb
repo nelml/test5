@@ -8,17 +8,20 @@
 		<div class="row">
 			<div class="col-xs-3">
 				<h2>User info</h2>
-				<%= attachment_image_tag current_user, :image, :fill, 100, 100, format: "jpg" %>
+				<%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, format: "jpg" %>
+				<% if current_user.image.nil? %>
+					<img src="/assets/null-img.png" class="nimgp">
+				<% end %>
 				<table class="table">
 					<tbody>
 						<tr></tr>
 						<tr>
 							<th>name</th>
-							<th><%= current_user.name %></th>
+							<th><%= @user.name %></th>
 						</tr>
 						<tr>
 							<th>introduction</th>
-							<th><%= current_user.introduction %></th>
+							<th><%= @user.introduction %></th>
 						</tr>
 					</tbody>
 				</table>
@@ -50,10 +53,21 @@
 							<td>
 							</td>
 							<td><%= link_to user_path(@user.id) do %>
-									<%= attachment_image_tag @user, :image, :fill, 40, 40, format: "jpg" %><br><%= @user.name %>
+									<% if current_user.image.nil? %>
+										<img src="/assets/null-img.png" class="nimg"><br><%= @user.name %>
+									<% else %>
+										<%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: "jpg" %><br><%= @user.name %>
+									<% end %>
 								<% end %>
 							</td>
-							<td><%= @booky.title %></td>
+							<td>
+								<% if @user == current_user %>
+									<%= link_to @booky.title, edit_book_path(@booky.id) %>
+								<% else %>
+									<%= link_to @booky.title, book_path(@booky.id) %>
+								<% end %>
+									</td>
+
 							<td><%= @booky.body %></td>
 							<% if current_user.id == @user.id %>
 							<td><%= link_to "Edit", edit_book_path(@user), class: "btn-sm btn-success" %></td>

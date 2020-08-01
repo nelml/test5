@@ -1,5 +1,8 @@
-<%= render "books/header" %>
-
+<% if user_signed_in? %>
+	<%= render 'afheader' %>
+<% else %>
+	<%= render "header" %>
+<% end %>
 <main>
 	<div class="container">
 		<p id="notice"></p>
