@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   get 'home/about' => 'books#about'
   post 'books/:id' => 'books#create'
-  delete 'books/books/:id' => 'books#delete', as: "delbook"
+  delete 'books/books/:id' => 'books#destroy', as: "delbook"
 end

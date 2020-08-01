@@ -20,7 +20,7 @@ class BooksController < ApplicationController
     if @user == current_user
 
     else
-      redirect_to book_path
+      redirect_to books_path
     end
 
   end
@@ -75,7 +75,7 @@ class BooksController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
       book = Book.find(params[:id])
       book.destroy
       redirect_to books_path

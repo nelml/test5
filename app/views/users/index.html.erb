@@ -5,9 +5,9 @@
 		<div class="row">
 			<div class="col-xs-3">
 				<h2>User info</h2>
-				<%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, format: "jpg" %>
-				<% if current_user.image.nil? %>
-					<img src="/assets/null-img.png" class="nimgp">
+				<%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, format: "jpg", class: "profile_image" %>
+				<% if current_user.profile_image.nil? %>
+					<img src="/assets/null-img.png" class="nimgp profile_image">
 				<% end %>
 				<table class="table">
 					<tbody>
@@ -55,9 +55,9 @@
 					<tbody>
 					<% @users.each do |user| %>
 						<tr>
-							<td><%=attachment_image_tag user, :profile_image, :fill, 40, 40, format: "jpg" %>
-								<% if user.image.nil? %>
-								<img src="/assets/null-img.png" class="nimg">
+							<td><%=attachment_image_tag user, :profile_image, :fill, 40, 40, format: "jpg", class: "profile_image" %>
+								<% if user.profile_image.nil? %>
+								<img src="/assets/null-img.png" class="nimg profile_image">
 								<% end %>
 							</td>
 							<td><%= user.name %></td>
